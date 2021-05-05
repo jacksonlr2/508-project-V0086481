@@ -1,5 +1,5 @@
 <?php
-/*error_reporting(E_ALL);
+error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $servername = "localhost";
@@ -13,5 +13,4 @@ try {
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
-*/
 ?>
