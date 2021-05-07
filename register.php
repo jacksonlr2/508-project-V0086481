@@ -8,7 +8,7 @@
 <body>
 
 <div>
-    <form action="register.php" method="post">
+    <form action="register.php" method="post" id="registration-form">
         <div class="container mt-3 mb-3">
             <div class="row justify-content-center">
                 <div class="col-4">
@@ -37,11 +37,11 @@
     </form>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript">
     $(function(){
-        $('#register').click(function(e){
+        $('#register').click(function(event){
 
             var valid = this.form.checkValidity();
 
@@ -53,7 +53,7 @@
                 var username = $('username').val();
                 var password = $('password').val();
 
-                e.preventDefault();
+                event.preventDefault();
 
                 $.ajax({
                     type:'POST',
@@ -75,9 +75,6 @@
                         })
                     }
                 });
-            }
-            else{
-
             }
         });
     });
