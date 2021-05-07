@@ -47,11 +47,11 @@
 
             if(valid){
 
-                var first_name = $('first_name').val();
-                var last_name = $('last_name').val();
-                var email = $('email').val();
-                var username = $('username').val();
-                var password = $('password').val();
+                var first_name = $('#first_name').val();
+                var last_name = $('#last_name').val();
+                var email = $('#email').val();
+                var username = $('#username').val();
+                var password = $('#password').val();
 
                 event.preventDefault();
 
