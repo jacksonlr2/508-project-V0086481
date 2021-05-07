@@ -8,9 +8,9 @@
 <body>
 <div>
     <form action="register.php" method="post">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
+        <div class="container mt-3 mb-3">
+            <div class="row justify-content-center">
+                <div class="col-4">
                     <h1>Registration</h1>
                     <p>Fill up the form with correct values.</p>
                     <hr class="mb-3">

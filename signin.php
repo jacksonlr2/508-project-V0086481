@@ -5,6 +5,7 @@
         header("Location: main.php");
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,18 +31,18 @@
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" name="username" id="username" class="form-control input_user" required>
+                        <input type="text" name="username" id="username" placeholder="Username" class="form-control input_user" required>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" name="password" id="password" class="form-control input_user" required>
+                        <input type="password" name="password" id="password" placeholder="Password" class="form-control input_user" required>
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="rememberme" class="custom-control-input" id="customControlInLine">
-                            <label class="custom-control-label"> for="customControlInLine">Remember me</label>
+                            <label class="custom-control-label" for="customControlInLine">Remember me</label>
                         </div>
                     </div>
             </div>
@@ -82,8 +83,8 @@ crossorigin="anonymous"></script>
                data: {username: username, password: password},
                success: function(data){
                    alert(data);
-                   if($.trim(data) == "1"){
-                       setTimeout(' window.location.href = "index.php"', 2000)
+                   if($.trim(data) === "1"){
+                       setTimeout(' window.location.href = "main.php"', 2000)
                    }
                },
                error: function(data){
