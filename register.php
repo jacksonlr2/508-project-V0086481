@@ -1,5 +1,5 @@
 <?php require_once ('connection.php'); ?>
-<html>
+<html lang="en">
 <head>
     <title> Registration </title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
@@ -7,28 +7,7 @@
 <body>
 
 <div>
-    <?php
-    if(isset($_POST['create'])){
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $email = $_POST['email'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
 
-        $sql = "INSERT INTO users (first_name, last_name, email, username, password) VALUES (?,?,?,?,?)";
-        $stmtinsert = $db->prepare($sql);
-        $result = $stmtinsert->execute([$first_name, $last_name, $email, $username, $password]);
-        if($result){
-            echo 'Successfully saved.';
-        }
-        else{
-            echo 'There were errors while saving the data';
-        }
-
-        /*echo $firstname . " " . $lastname . " " . $email . " " . $username . " " . $password;*/
-        /*echo 'User submitted.';*/
-    }
-    ?>
 </div>
 
 <div>
@@ -99,11 +78,9 @@
                         })
                     }
                 });
-
-                alert('true');
             }
             else{
-                alert('false');
+
             }
         });
     });
