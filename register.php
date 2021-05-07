@@ -8,31 +8,6 @@
 <body>
 
 <div>
-    <?php
-    if(isset($_POST['create'])){
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $email = $_POST['email'];
-        $username = $_POST['username'];
-        $origPassword = $_POST['password'];
-        $password = password_hash($origPassword, PASSWORD_DEFAULT);
-
-        $sql = "INSERT INTO user(first_name, last_name, email, username, password) VALUES (?,?,?,?,?)";
-        $stmtinsert = $conn->prepare($sql);
-        $result = $stmtinsert->execute([$first_name, $last_name, $email, $username, $password]);
-        if($result){
-            echo 'Successfully saved.';
-        }
-        else{
-            echo 'There were errors while saving the data';
-        }
-    }
-    else{
-        echo 'No data';
-    }
-    ?>
-</div>
-<div>
     <form action="register.php" method="post">
         <div class="container mt-3 mb-3">
             <div class="row justify-content-center">
@@ -64,6 +39,49 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#register').click(function(e){
+
+            var valid = this.form.checkValidity();
+
+            if(valid){
+
+                var first_name = $('first_name').val();
+                var last_name = $('last_name').val();
+                var email = $('email').val();
+                var username = $('username').val();
+                var password = $('password').val();
+
+                e.preventDefault();
+
+                $.ajax({
+                    type:'POST',
+                    url: 'registerProcess.php',
+                    data: {first_name: first_name, last_name: last_name, email: email, username: username, password: password},
+                    success: function(data){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: 'Your account has been created.',
+                            footer: '<a href="signin.php">Sign in</a>'
+                        })
+                    },
+                    error: function(data){
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'There were errors while saving the data.'
+                        })
+                    }
+                });
+            }
+            else{
+
+            }
+        });
+    });
+</script>
 </body>
 </html>
 
