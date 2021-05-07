@@ -8,15 +8,15 @@
 <body>
 
 <div>
-    <form action="register.php" method="post" id="registration-form">
-        <div class="container mt-3 mb-3">
+    <form action="register.php" method="post">
+        <div class="container">
             <div class="row justify-content-center">
-                <div class="col-4">
+                <div class="col-sm-3">
                     <h1>Registration</h1>
                     <p>Fill up the form with correct values.</p>
                     <hr class="mb-3">
                     <label for="first_name"><b>First Name</b></label>
-                    <input class="form-control" id="first_name" placeholder="Enter first name"type="text" name="first_name" required>
+                    <input class="form-control" id="first_name" placeholder="Enter first name" type="text" name="first_name" required>
 
                     <label for="last_name"><b>Last Name</b></label>
                     <input class="form-control" id="last_name" placeholder="Enter last name" type="text" name="last_name" required>
