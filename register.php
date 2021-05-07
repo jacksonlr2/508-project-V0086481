@@ -56,7 +56,7 @@
 
                 $.ajax({
                     type:'POST',
-                    url: 'process.php',
+                    url: 'registerProcess.php',
                     data: {first_name: first_name, last_name: last_name, email: email, username: username, password: password},
                     success: function(data){
                         Swal.fire({
