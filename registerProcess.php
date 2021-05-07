@@ -7,7 +7,7 @@ if(isset($_POST['create'])){
     $username = $_POST['username'];
     $password = shal($_POST['password']);
 
-    $sql = "INSERT INTO users (first_name, last_name, email, username, password) VALUES (?,?,?,?,?)";
+    $sql = "INSERT INTO user(first_name, last_name, email, username, password) VALUES (?,?,?,?,?)";
     $stmtinsert = $conn->prepare($sql);
     $result = $stmtinsert->execute([$first_name, $last_name, $email, $username, $password]);
     if($result){
