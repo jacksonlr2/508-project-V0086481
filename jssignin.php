@@ -3,9 +3,10 @@ session_start();
 require_once('connection.php');
 
 $username = $_POST['username'];
-$password = $_POST['password'];
+$origPassword   = $_POST['password'];
+$password = password_hash($origPassword, PASSWORD_DEFAULT);
 
-$sql = "SELECT * FROM user WHERE username = ? AND password = ? LIMIT 1";
+$sql = "SELECT * FROM users WHERE username = ? AND password = ? LIMIT 1";
 $stmtselect = $conn->prepare($sql);
 $result = $stmtselect->execute([$username, $password]);
 
@@ -15,7 +16,10 @@ if($result){
         $_SESSION['userlogin'] = $user;
     }
     else{
-        echo "The username/password you entered is incorrect.";
+        echo '<script type = "text/javascript">';
+        echo 'alert("The username/password you entered is incorrect.");';
+        echo 'window.location.href = "signin.php" ';
+        echo '</script>';
     }
 }
 else{
