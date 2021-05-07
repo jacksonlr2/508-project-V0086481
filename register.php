@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title> Registration </title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
 
 <body>
@@ -15,19 +15,19 @@
                     <p>Fill up the form with correct values.</p>
                     <hr class="mb-3">
                     <label for="first_name"><b>First Name</b></label>
-                    <input class="form-control" id="first_name" type="text" name="first_name" required>
+                    <input class="form-control" id="first_name" placeholder="Enter first name"type="text" name="first_name" required>
 
                     <label for="last_name"><b>Last Name</b></label>
-                    <input class="form-control" id="last_name" type="text" name="last_name" required>
+                    <input class="form-control" id="last_name" placeholder="Enter last name" type="text" name="last_name" required>
 
                     <label for="email"><b>Email Address</b></label>
-                    <input class="form-control" id="email" type="text" name="email" required>
+                    <input class="form-control" id="email" placeholder="Enter email" type="email" name="email" required>
 
                     <label for="username"><b>Username</b></label>
-                    <input class="form-control" id="username" type="text" name="username" required>
+                    <input class="form-control" id="username" placeholder="Enter username" type="text" name="username" required>
 
                     <label for="password"><b>Password</b></label>
-                    <input class="form-control" id="password" type="text" name="password" required>
+                    <input class="form-control" id="password" placeholder="Enter password" type="password" name="password" required>
                     <hr class="mb-3">
                     <input class="btn btn-primary" type="submit" id="register" name="create" value="Sign Up">
                 </div>

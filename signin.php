@@ -9,9 +9,10 @@
 <html lang="en">
 <head>
     <title>Sign In</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/signinStyles.css">
     <script src="https://kit.fontawesome.com/13e4b9f1ad.js" crossorigin="anonymous"></script>
-    <link> rel="stylesheet" type="text/css" href="css/signinStyles.css">
+
 </head>
 
 <body>
