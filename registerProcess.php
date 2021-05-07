@@ -5,7 +5,8 @@ if(isset($_POST['create'])){
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $username = $_POST['username'];
-    $password = shal($_POST['password']);
+    $origPassword = $_POST['password'];
+    $password = password_hash($origPassword, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO user(first_name, last_name, email, username, password) VALUES (?,?,?,?,?)";
     $stmtinsert = $conn->prepare($sql);
