@@ -3,16 +3,15 @@ session_start();
 require_once('connection.php');
 
 $username = $_POST['username'];
-$origPassword   = $_POST['password'];
-$password = password_hash($origPassword, PASSWORD_DEFAULT);
+$password   = $_POST['password'];
 
-$sql = "SELECT * FROM users WHERE username = ? AND password = ? LIMIT 1";
+$sql = "SELECT * FROM users WHERE username = ?";
 $stmtselect = $conn->prepare($sql);
-$result = $stmtselect->execute([$username, $password]);
+$result = $stmtselect->execute([$username]);
 
 if($result){
     $user = $stmtselect->fetch(PDO::FETCH_ASSOC);
-    if($stmtselect->rowCount() > 0){
+    if($stmtselect->rowCount() > 0 AND password_verify($password, $user['password'])){
         $_SESSION['userlogin'] = $user;
         echo '1';
     }
