@@ -69,16 +69,17 @@ if(isset($_GET['logout'])){
                 $image_path = $row['image_path'];
                 ?>
                 <a href="category-foods.html">
-                    <div class="cat-img float-container">
+                    <div class="box-3 float-container">
                         <?php
                         if($image_path==""){
                             echo "<div class='error'>Image not Available</div>";
                         }
                         else{
                             ?>
-                            <img src="<?php echo $image_path;?>" alt="" class="img-responsive img-curve">
+                            <div class="cat-img">
+                                <img src="<?php echo $image_path;?>" alt="" class="img-responsive img-curve">
+                            </div>
                             <?php
-
                         }
                         ?>
                         <h3 class="float-text text-white"><?php echo $name; ?></h3>
