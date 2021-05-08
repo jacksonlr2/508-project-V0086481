@@ -45,11 +45,11 @@
                             <label class="custom-control-label" for="customControlInLine">Remember me</label>
                         </div>
                     </div>
+            </div>
                     <div class="d-flex justify-content-center mt-3 login_container">
                         <button type="button" name="button" id="login" class="btn login_btn">Sign In</button>
                     </div>
                 </form>
-            </div>
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
                     Don't have an account? <a href="register.php" class="ml-2">Register</a>
@@ -66,31 +66,34 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"> </script>
 <script>
-    $(function (){
-       $('#login').click(function (event){
-           var valid = this.form.checkValidity();
+    $(function(){
+        $('#login').click(function(event){
 
-           if(valid){
-               var username = $('#username').val();
-               var password = $('#password').val();
-           }
+            var valid = this.form.checkValidity();
 
-           event.preventDefault();
+            if(valid){
+                var username = $('#username').val();
+                var password = $('#password').val();
+            }
 
-           $.ajax({
-               type: 'POST',
-               url: 'jssignin.php',
-               data: {username: username, password: password},
-               success: function(data){
-                   if($.trim(data) === "1"){
-                       setTimeout(' window.location.href = "main.php"', 2000)
-                   }
-               },
-               error: function(data){
-                   alert('There were errors while doing this operation.');
-               }
-           });
-       });
+            event.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: 'jssignin.php',
+                data:  {username: username, password: password},
+                success: function(data){
+                    alert(data);
+                    if($.trim(data) === "1"){
+                        setTimeout(' window.location.href =  "main.php"', 1000);
+                    }
+                },
+                error: function(data){
+                    alert('there were errors while doing the operation.');
+                }
+            });
+
+        });
     });
 </script>
 </body>
