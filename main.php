@@ -29,7 +29,6 @@ if(isset($_GET['logout'])){
             <a href="#" title="Logo">
                 <img src="img/logo.png" alt="Logo" class="img-responsive">
             </a>
-            Master Meals
         </div>
 
         <div class="menu text-right">
@@ -41,13 +40,13 @@ if(isset($_GET['logout'])){
                     <a href="recipes.php">Recipes</a>
                 </li>
                 <li>
-                    <a href="favorites.php">My Favorites</a>
+                    <a href="favorites.php">Favorites</a>
                 </li>
                 <li>
                     <a href="account.php">Account</a>
                 </li>
                 <li>
-                    <a href="main.php?logout=true">Sign Out</a>
+                    <a href="main.php?logout=true">Logout</a>
                 </li>
             </ul>
         </div>
