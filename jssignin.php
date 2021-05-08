@@ -14,12 +14,10 @@ if($result){
     $user = $stmtselect->fetch(PDO::FETCH_ASSOC);
     if($stmtselect->rowCount() > 0){
         $_SESSION['userlogin'] = $user;
+        echo '1';
     }
     else{
-        echo '<script type = "text/javascript">';
-        echo 'alert("The username/password you entered is incorrect.");';
-        echo 'window.location.href = "signin.php" ';
-        echo '</script>';
+        echo "The username/password you entered is incorrect.";
     }
 }
 else{

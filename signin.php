@@ -45,11 +45,11 @@
                             <label class="custom-control-label" for="customControlInLine">Remember me</label>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button type="button" name="button" id="login" class="btn login_btn">Sign In</button>
+                    </div>
+                </form>
             </div>
-            <div class="d-flex justify-content-center mt-3 login_container">
-                <button type="button" name="button" id="login" class="btn login_btn">Sign In</button>
-            </div>
-            </form>
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
                     Don't have an account? <a href="register.php" class="ml-2">Register</a>
@@ -67,7 +67,7 @@ crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"> </script>
 <script>
     $(function (){
-       $('#login').click(function (e){
+       $('#login').click(function (event){
            var valid = this.form.checkValidity();
 
            if(valid){
@@ -75,7 +75,7 @@ crossorigin="anonymous"></script>
                var password = $('#password').val();
            }
 
-           e.preventDefault();
+           event.preventDefault();
 
            $.ajax({
                type: 'POST',
