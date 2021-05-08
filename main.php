@@ -72,11 +72,11 @@ if(isset($_GET['logout'])){
 
         <?php
             $sql = "SELECT * FROM meal_types LIMIT 3";
-            $result = mysqli_query($conn,$sql);
-            $count = mysqli_num_rows($result);
+            $stmt = $conn->prepare($sql);
+            $result = $stmt->execute();;
 
-            if($count > 0){
-                while($row=mysqli_fetch_assoc($result)){
+            if($stmt->rowCount() > 0){
+                while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                     $region_id = $row['region_id'];
                     $name = $row['name'];
                     $image_path = $row['image_path'];
@@ -119,11 +119,11 @@ if(isset($_GET['logout'])){
 
         <?php
         $sql = "SELECT * FROM regions LIMIT 3";
-        $result = mysqli_query($conn,$sql);
-        $count = mysqli_num_rows($result);
+        $stmt = $conn->prepare($sql);
+        $result = $stmt->execute();;
 
-        if($count > 0){
-            while($row=mysqli_fetch_assoc($result)){
+        if($stmt->rowCount() > 0){
+            while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                 $region_id = $row['region_id'];
                 $name = $row['name'];
                 $image_path = $row['image_path'];
