@@ -63,16 +63,13 @@ if(isset($_GET['logout'])){
         $result = $stmt->execute();
 
         if($stmt->rowCount() > 0){
-            ?>
-            <div class="row">
-            <?php
             while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                 $meal_type_id = $row['meal_type_id'];
                 $name = $row['name'];
                 $image_path = $row['image_path'];
                 ?>
                 <a href="category-foods.html">
-                    <div class="column">
+                    <div class="container2">
                         <?php
                         if($image_path==""){
                             echo "<div class='error'>Image not Available</div>";
@@ -89,9 +86,6 @@ if(isset($_GET['logout'])){
                 </a>
                 <?php
             }
-            ?>
-            </div>
-    <?php
         }
         else{
             echo "<div class='error'>Categories have not been added.</div>";

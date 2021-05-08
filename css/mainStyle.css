@@ -183,3 +183,11 @@ fieldset{
     width: 300px;
     height: 300px;
 }
+.container2{
+    width: 200px;
+    height: 120px;
+}
+.container2 img{
+    width: 100%;
+    height: auto;
+}
