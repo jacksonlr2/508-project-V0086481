@@ -83,10 +83,7 @@ crossorigin="anonymous"></script>
                 url: 'jssignin.php',
                 data:  {username: username, password: password},
                 success: function(data){
-                    alert(data);
-                    if($.trim(data) === "1"){
                         setTimeout(' window.location.href =  "main.php"', 1000);
-                    }
                 },
                 error: function(data){
                     alert('there were errors while doing the operation.');

@@ -52,7 +52,6 @@ if(isset($_GET['logout'])){
         <div class="clearfix"></div>
     </div>
 </section>
-
 <!-- Categories Section Starts Here -->
 <section class="regions">
     <div class="container">
@@ -70,7 +69,7 @@ if(isset($_GET['logout'])){
                 $image_path = $row['image_path'];
                 ?>
                 <a href="category-foods.html">
-                    <div class="cat-img float-container">
+                    <div class="box-3 float-container">
                         <?php
                         if($image_path==""){
                             echo "<div class='error'>Image not Available</div>";
@@ -92,9 +91,11 @@ if(isset($_GET['logout'])){
             echo "<div class='error'>Categories have not been added.</div>";
         }
         ?>
-
         <div class="clearfix"></div>
     </div>
+    <p class="text-center">
+        <a href="regions.php">See All Regions</a>
+    </p>
 </section>
 <!-- Categories Section Ends Here -->
 </body>

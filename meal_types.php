@@ -58,9 +58,9 @@ if(isset($_GET['logout'])){
         <h2 class="text-center">Explore Recipes By Type</h2>
 
         <?php
-        $sql = "SELECT * FROM meal_types ";
+        $sql = "SELECT * FROM meal_types";
         $stmt = $conn->prepare($sql);
-        $result = $stmt->execute();
+        $result = $stmt->execute();;
 
         if($stmt->rowCount() > 0){
             while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
@@ -69,7 +69,7 @@ if(isset($_GET['logout'])){
                 $image_path = $row['image_path'];
                 ?>
                 <a href="category-foods.html">
-                    <div class="container2">
+                    <div class="box-3 float-container">
                         <?php
                         if($image_path==""){
                             echo "<div class='error'>Image not Available</div>";
@@ -94,5 +94,5 @@ if(isset($_GET['logout'])){
         <div class="clearfix"></div>
     </div>
 </section>
-<!-- Categories Section Ends Here -->
 </body>
+
