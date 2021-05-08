@@ -28,8 +28,8 @@ if(isset($_GET['logout'])){
         <div class="logo">
             <a href="#" title="Logo">
                 <img src="img/logo.png" alt="Logo" class="img-responsive">
-                Master Meals
             </a>
+            Master Meals
         </div>
 
         <div class="menu text-right">
