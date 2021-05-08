@@ -46,7 +46,7 @@ if(isset($_GET['logout'])){
                     <a href="account.php">Account</a>
                 </li>
                 <li>
-                    <a href="main.php?logout=true" class="btn">Logout</a>
+                    <a href="main.php?logout=true">Sign Out</a>
                 </li>
             </ul>
         </div>
@@ -58,7 +58,7 @@ if(isset($_GET['logout'])){
     <div class="container">
 
         <form action="food-search.html" method="POST">
-            <input type="search" name="search" placeholder="Search for Food.." required>
+            <input type="search" name="search" placeholder="Search for Recipes.." required>
             <input type="submit" name="submit" value="Search" class="btn btn-primary">
         </form>
 
@@ -77,7 +77,7 @@ if(isset($_GET['logout'])){
 
             if($stmt->rowCount() > 0){
                 while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-                    $region_id = $row['region_id'];
+                    $meal_type_id = $row['meal_type_id'];
                     $name = $row['name'];
                     $image_path = $row['image_path'];
                     ?>
@@ -108,7 +108,7 @@ if(isset($_GET['logout'])){
         <div class="clearfix"></div>
     </div>
     <p class="text-center">
-        <a href="meal_types.php">See All Foods</a>
+        <a href="meal_types.php">See All Types</a>
     </p>
 </section>
 <!-- Categories Section Ends Here -->
@@ -154,6 +154,9 @@ if(isset($_GET['logout'])){
 
         <div class="clearfix"></div>
     </div>
+    <p class="text-center">
+        <a href="regions.php">See All Regions</a>
+    </p>
 </section>
 <!-- Categories Section Ends Here -->
 </body>
