@@ -5,7 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 .container{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     padding: 1%;
 }
@@ -126,7 +126,8 @@ fieldset{
 }
 
 .box-3{
-    width: 28%;
+    height: 3229px;
+    width: 4824px;
     float: left;
     margin: 2%;
 }

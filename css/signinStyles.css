@@ -2,7 +2,7 @@ body,html{
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #ececec;
+    background: #ececec;
 }
 
 .user_card{
@@ -28,7 +28,7 @@ body,html{
     width: 170px;
     top: -75px;
     border-radius: 50%;
-    background-color: #ececec;
+    background: #ececec;
     padding: 10px;
     text-align: center;
 }
