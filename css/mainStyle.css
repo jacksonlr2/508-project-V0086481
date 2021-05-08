@@ -81,7 +81,7 @@ fieldset{
 }
 
 
-/* CSSS for navbar section */
+/* CSS for navbar section */
 
 .logo{
     width: 10%;
@@ -126,8 +126,7 @@ fieldset{
 }
 
 .box-3{
-    height: 322px;
-    width: 482px;
+    width: 28%;
     float: left;
     margin: 2%;
 }
