@@ -27,6 +27,7 @@
 }
 .text-white{
     color: white;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .clearfix{
@@ -144,7 +145,7 @@ fieldset{
     padding: 4% 0;
 }
 .food-menu-box{
-    width: 43%;
+    width: 26%;
     margin: 1%;
     padding: 2%;
     float: left;
