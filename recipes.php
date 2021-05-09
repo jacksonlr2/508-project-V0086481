@@ -59,7 +59,7 @@ if(isset($_GET['logout'])){
 <section class="food-search text-center">
     <div class="container">
 
-        <form action="food-search.html" method="POST">
+        <form action="searchRecipes.php" method="POST">
             <input type="search" name="search" placeholder="Search for Recipes..." required>
             <input type="submit" name="submit" value="Search" class="btn btn-primary">
         </form>
