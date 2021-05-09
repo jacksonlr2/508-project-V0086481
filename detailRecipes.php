@@ -13,7 +13,7 @@ if(isset($_GET['logout'])){
 }
 if(isset($_GET['recipe_id'])){
     $recipe_id = $_GET['recipe_id'];
-    $sql = "SELECT * FROM recipes WHERE recipe_id = ?";
+    $sql = "SELECT recipe_id, IFNULL(name,' '), IFNULL(serving_size,'---'), IFNULL(calories,'---'), IFNULL(cook_time,'---'), IFNULL(skill_level,'---'), IFNULL(instructions,'---'), chef_id, image_path FROM recipes WHERE recipe_id = ?";
     $stmt = $conn->prepare($sql);
     $result = $stmt->execute([$recipe_id]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -29,6 +29,9 @@ if(isset($_GET['recipe_id'])){
         $instructions = $row['instructions'];
         $chef_id = $row['chef_id'];
         $image_path2 = $row['image_path'];
+    }
+    else{
+        header("Location: main.php");
     }
 }
 else{
