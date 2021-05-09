@@ -12,13 +12,13 @@ if(isset($_GET['logout'])){
     header("Location: signin.php");
 }
 
-if(isset($_GET['meal_type_id'])){
-    $meal_type_id = $_GET['meal_type_id'];
-    $sql = "SELECT name FROM meal_types WHERE meal_type_id = ?";
+if(isset($_GET['region_id'])){
+    $region_id = $_GET['region_id'];
+    $sql = "SELECT name FROM regions WHERE region_id = ?";
     $stmt = $conn->prepare($sql);
-    $result = $stmt->execute([$meal_type_id]);
+    $result = $stmt->execute([$region_id]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    $meal_type_name = $row['name'];
+    $region_name = $row['name'];
 }
 else{
     header("Location: main.php");
@@ -71,7 +71,7 @@ else{
 <section class="food-search text-center">
     <div class="container">
 
-        <h2><a href="#" class="text-white">"<?php echo $meal_type_name; ?>"</a> Recipes</h2>
+        <h2><a href="#" class="text-white">"<?php echo $region_name; ?>"</a> Recipes</h2>
 
     </div>
 </section>
@@ -83,9 +83,9 @@ else{
         <h2 class="text-center">Recipes</h2>
 
         <?php
-        $sql2 = "SELECT * FROM recipes WHERE meal_type_id = ?";
+        $sql2 = "SELECT * FROM recipes WHERE region_id = ?";
         $stmt2 = $conn->prepare($sql2);
-        $result2 = $stmt2->execute([$meal_type_id]);
+        $result2 = $stmt2->execute([$region_id]);
 
         if($stmt2->rowCount() > 0){
             while($row2=$stmt2->fetch(PDO::FETCH_ASSOC)){
@@ -144,9 +144,7 @@ else{
         }
         ?>
         <div class="clearfix"></div>
-
     </div>
-
 </section>
 <!-- fOOD Menu Section Ends Here -->
 
