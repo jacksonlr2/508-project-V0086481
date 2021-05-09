@@ -19,3 +19,23 @@ body{
     color: white !important;
     background: black;
 }
+
+.menu ul{
+    list-style-type: none;
+}
+
+.menu ul li{
+    display: inline;
+    padding: 1%;
+    font-weight: bold;
+}
+a{
+    color: rgba(97, 78, 120, 0.8);
+    text-decoration: none;
+}
+a:hover{
+    color: rgba(97, 78, 120, 0.8);
+}
+.pd1-md-5{
+    padding-left: 30px;
+}
