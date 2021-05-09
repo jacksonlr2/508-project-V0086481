@@ -106,7 +106,7 @@ $stmt3 = $conn->prepare($sql3);
 $result3 = $stmt3->execute();
 
 if($stmt3->rowCount() == 1) {
-    $row3 = $stmt2->fetch(PDO::FETCH_ASSOC);
+    $row3 = $stmt3->fetch(PDO::FETCH_ASSOC);
     $first_name = $row3['first_name'];
     $last_name = $row3['last_name'];
 }
