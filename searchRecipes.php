@@ -75,7 +75,7 @@ if(isset($_GET['logout'])){
         <h2 class="text-center">Recipes</h2>
 
         <?php
-        $sql = "SELECT * FROM recipes WHERE name LIKE .('%'?'%'). OR instructions LIKE .('%'?'%').";
+        $sql = "SELECT * FROM recipes WHERE name LIKE '%'.?.'%' OR instructions LIKE '%'.?.'%'";
         $stmt = $conn->prepare($sql);
         $result = $stmt->execute([$search,$search]);
         if($stmt->rowCount() > 0) {
