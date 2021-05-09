@@ -75,9 +75,9 @@ if(isset($_GET['logout'])){
         <h2 class="text-center">Recipes</h2>
 
         <?php
-        $sql = "SELECT * FROM recipes WHERE name LIKE '%'.?.'%' OR instructions LIKE '%'.?.'%'";
+        $sql = "SELECT * FROM recipes WHERE name LIKE '%$search%' OR instructions LIKE '%$search%'";
         $stmt = $conn->prepare($sql);
-        $result = $stmt->execute([$search,$search]);
+        $result = $stmt->execute();
         if($stmt->rowCount() > 0) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $recipe_id = $row['recipe_id'];
