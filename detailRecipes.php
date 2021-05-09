@@ -85,16 +85,18 @@ else{
 }
 ?>
 <?php
-$sql2 = "SELECT  CONCAT(IFNULL(first_name,' '), ' ', IFNULL(last_name,' ')) AS chef_name FROM recipes JOIN users ON chef_id = user_id WHERE recipe_id = $recipe_id";
+$sql2 = "SELECT * FROM recipes JOIN users ON chef_id = user_id WHERE recipe_id = $recipe_id";
 $stmt2 = $conn->prepare($sql2);
 $result2 = $stmt2->execute();
 
 if($stmt2->rowCount() == 1) {
     $row2 = $stmt->fetch(PDO::FETCH_ASSOC);
-    $chef_name = $row2['chef_name'];
+    $first_name = $row2['first_name'];
+    $last_name = $row2['last_name'];
 }
 else{
-   $chef_name = ' ';
+   $first_name = ' ';
+   $last_name = ' ';
 }
 ?>
 
@@ -109,7 +111,7 @@ else{
             <div class="col-lg-6 prod-des p1-md-5">
                 <h3><?php echo $name?></h3>
                 <div class="rating d-flex">
-                    <p class="text-left mr-2 text-dark"> By: <?php echo $chef_name?> </p>
+                    <p class="text-left mr-2 text-dark"> By: <?php echo $first_name?> <?php echo $last_name?></p>
                 </div>
                 <div class="rating d-flex">
                     <p class="text-left mr-4">
