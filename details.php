@@ -66,7 +66,7 @@ if(isset($_GET['logout'])){
 <!-- Navbar Section Ends Here -->
 <!-- Recipe Detail Section Starts Here -->
 <section class="mt-5">
-    <div class="container2">
+    <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-5">
                 <a href="#"class="img-bg">
@@ -76,10 +76,10 @@ if(isset($_GET['logout'])){
             <div class="col-lg-6 prod-des p1-md-5">
                 <h3>Dessert</h3>
                 <div class="rating d-flex">
-                    <p class="text-left2 mr-4">
+                    <p class="text-left mr-4">
                         <a href="#"class="mr-2 text-dark">4.5 out of 5.0</a>
                     </p>
-                    <p class="text-left2 mr-4">
+                    <p class="text-left mr-4">
                         <a href="#"class="mr-2 text-dark">100
                             <span style="color: #2c2e2c8a;">Rating</span>
                         </a>
