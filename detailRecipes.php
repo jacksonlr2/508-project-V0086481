@@ -60,9 +60,9 @@ if(isset($_GET['logout'])){
 <?php
 if(isset($_GET['recipe_id'])){
     $recipe_id = $_GET['recipe_id'];
-    $sql = "SELECT recipe_id, IFNULL(name,' '), IFNULL(serving_size,'---'), IFNULL(calories,'---'), IFNULL(cook_time,'---'), IFNULL(skill_level,'---'), IFNULL(instructions,'---'), chef_id, image_path FROM recipes WHERE recipe_id = ?";
+    $sql = "SELECT * FROM recipes WHERE recipe_id = $recipe_id";
     $stmt = $conn->prepare($sql);
-    $result = $stmt->execute([$recipe_id]);
+    $result = $stmt->execute();
 
     if($stmt->rowCount() == 1) {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
