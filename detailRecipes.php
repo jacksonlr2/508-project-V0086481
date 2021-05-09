@@ -60,7 +60,7 @@ if(isset($_GET['logout'])){
 <?php
 if(isset($_GET['recipe_id'])){
     $recipe_id = $_GET['recipe_id'];
-    $sql = "SELECT * FROM recipes WHERE recipe_id = $recipe_id";
+    $sql = "SELECT recipe_id, IFNULL(name,' '), IFNULL(serving_size,'---'), IFNULL(calories,'---'), IFNULL(cook_time,'---'), IFNULL(skill_level,'---'), IFNULL(instructions,'---'), chef_id, image_path FROM recipes WHERE recipe_id = $recipe_id";
     $stmt = $conn->prepare($sql);
     $result = $stmt->execute();
 
@@ -116,7 +116,7 @@ else{
                         <i class="fas fa-users mr-2 text-dark"> <?php echo $serving_size?> servings</i>
                     </p>
                     <p class="text-left mr-4">
-                        <i class="fas fa-signal mr-2 text-dark"> <?php echo $name?></i>
+                        <i class="fas fa-signal mr-2 text-dark"> <?php echo $skill_level?></i>
                     </p>
                     <p class="text-left mr-4">
                         <i class="fas fa-fire mr-2 text-dark"> <?php echo $calories?> calories</i>
