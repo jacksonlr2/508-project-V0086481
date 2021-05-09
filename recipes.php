@@ -86,7 +86,7 @@ if(isset($_GET['logout'])){
                 $calories = $row['calories'];
                 $cook_time = $row['cook_time'];
                 $skill_level = $row['skill_level'];
-                $instruction = $row['instruction'];
+                $instructions = $row['instructions'];
                 $chef_id = $row['chef_id'];
                 $favorite_id = $row['favorite_id'];
                 $meal_type_id = $row['meal_type_id'];
