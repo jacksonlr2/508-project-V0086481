@@ -5,19 +5,25 @@ require_once ('connection.php');
 if(!isset($_SESSION['userlogin'])){
     header("Location: signin.php");
 }
+else{
+    $user   = $_SESSION['userlogin'];
+    $user_id = $user['user_id'];
+    $user_name = $user['first_name'];
+}
 
 if(isset($_GET['logout'])){
     session_destroy();
     unset($_SESSION);
     header("Location: signin.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Meals | Home </title>
+    <title>Master Meals | My Favorites </title>
     <link rel="stylesheet" href="css/mainStyle.css">
 </head>
 <body>
@@ -57,42 +63,38 @@ if(isset($_GET['logout'])){
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
     <div class="container">
-        <?php
-        $search = $_POST['search'];
-        ?>
-        <h2>Recipes From Your Search <a href="#" class="text-white">"<?php echo $search; ?>"</a></h2>
+
+        <h2><a href="#" class="text-white"><?php echo $user_name; ?>'s</a> Favorites</h2>
 
     </div>
 </section>
 <!-- fOOD sEARCH Section Ends Here -->
 
-
-
 <!-- fOOD MEnu Section Starts Here -->
 <section class="food-menu">
     <div class="container">
-
         <h2 class="text-center">Recipes</h2>
 
         <?php
-        $sql = "SELECT * FROM recipes WHERE name LIKE '%$search%' OR instructions LIKE '%$search%'";
-        $stmt = $conn->prepare($sql);
-        $result = $stmt->execute();
-        if($stmt->rowCount() > 0) {
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $recipe_id = $row['recipe_id'];
-            $name = $row['name'];
-            $serving_size = $row['serving_size'];
-            $calories = $row['calories'];
-            $cook_time = $row['cook_time'];
-            $skill_level = $row['skill_level'];
-            $instructions = $row['instructions'];
-            $chef_id = $row['chef_id'];
-            $favorite_id = $row['favorite_id'];
-            $meal_type_id = $row['meal_type_id'];
-            $region_id = $row['region_id'];
-            $image_path2 = $row['image_path'];
-        ?>
+        $sql2 = "SELECT * FROM recipes JOIN favorites_list USING (recipe_id) JOIN users ON viewer_id = user_id WHERE user_id = ?";
+        $stmt2 = $conn->prepare($sql2);
+        $result2 = $stmt2->execute([$user_id]);
+
+        if($stmt2->rowCount() > 0){
+            while($row2=$stmt2->fetch(PDO::FETCH_ASSOC)){
+                $recipe_id = $row2['recipe_id'];
+                $name = $row2['name'];
+                $serving_size = $row2['serving_size'];
+                $calories = $row2['calories'];
+                $cook_time = $row2['cook_time'];
+                $skill_level = $row2['skill_level'];
+                $instructions = $row2['instructions'];
+                $chef_id = $row2['chef_id'];
+                $favorite_id = $row2['favorite_id'];
+                $meal_type_id = $row2['meal_type_id'];
+                $region_id = $row2['region_id'];
+                $image_path2 = $row2['image_path'];
+                ?>
                 <div class="food-menu-box">
                     <div class="food-menu-img">
                         <?php
@@ -134,10 +136,9 @@ if(isset($_GET['logout'])){
             }
         }
         else{
-            echo "<div class='error'>No recipes were found that match your search.</div>";
+            echo "<div class='error'>Recipes have not been added.</div>";
         }
         ?>
-
         <div class="clearfix"></div>
 
     </div>

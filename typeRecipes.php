@@ -142,6 +142,9 @@ else{
                 <?php
             }
         }
+        else{
+            echo "<div class='error'>No recipes were found that match this type.</div>";
+        }
         ?>
         <div class="clearfix"></div>
 

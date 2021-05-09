@@ -100,7 +100,7 @@ if(isset($_GET['logout'])){
                 }
             }
             else{
-                echo "<div class='error'>Categories have not been added.</div>";
+                echo "<div class='error'>Types have not been added.</div>";
             }
         ?>
 
@@ -147,7 +147,7 @@ if(isset($_GET['logout'])){
             }
         }
         else{
-            echo "<div class='error'>Categories have not been added.</div>";
+            echo "<div class='error'>Regions have not been added.</div>";
         }
         ?>
 

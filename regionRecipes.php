@@ -142,6 +142,9 @@ else{
                 <?php
             }
         }
+        else{
+            echo "<div class='error'>No recipes were found from this region.</div>";
+        }
         ?>
         <div class="clearfix"></div>
     </div>

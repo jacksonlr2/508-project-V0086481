@@ -88,7 +88,7 @@ if(isset($_GET['logout'])){
             }
         }
         else{
-            echo "<div class='error'>Categories have not been added.</div>";
+            echo "<div class='error'>Types have not been added.</div>";
         }
         ?>
         <div class="clearfix"></div>

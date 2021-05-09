@@ -133,6 +133,9 @@ if(isset($_GET['logout'])){
         <?php
             }
         }
+        else{
+            echo "<div class='error'>Recipes have not been added.</div>";
+        }
         ?>
 
 
