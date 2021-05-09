@@ -90,7 +90,7 @@ $stmt2 = $conn->prepare($sql2);
 $result2 = $stmt2->execute();
 
 if($stmt2->rowCount() == 1) {
-    $row2 = $stmt->fetch(PDO::FETCH_ASSOC);
+    $row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
     $first_name = $row2['first_name'];
     $last_name = $row2['last_name'];
 }
