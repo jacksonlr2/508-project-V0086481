@@ -5,7 +5,10 @@ require_once ('connection.php');
 if(!isset($_SESSION['userlogin'])){
     header("Location: signin.php");
 }
-
+else{
+    $user   = $_SESSION['userlogin'];
+    $user_id = $user['user_id'];
+}
 if(isset($_GET['logout'])){
     session_destroy();
     unset($_SESSION);
@@ -185,9 +188,26 @@ else{
                 <p class="amount">Instructions</p>
                 <p><?php echo $instructions?></p>
                 <p>
-                    <a href="#"class="btn btn-bg py-3 px-3 mr-2">
-                        Add to Favorites
-                    </a>
+                    <?php
+                    $sql5 = "SELECT * FROM recipes JOIN favorites_list USING (recipe_id) JOIN users ON viewer_id = user_id WHERE recipe_id = $recipe_id AND user_id = $user_id";
+                    $stmt5 = $conn->prepare($sql5);
+                    $result5 = $stmt5->execute();
+                    if($stmt5->rowCount() == 1) {
+                        ?>
+                        <a href="#"class="btn btn-bg py-3 px-3 mr-2">
+                            Remove from Favorites
+                        </a>
+                    <?php
+                    }
+                    else{
+                    ?>
+                        <a href="#"class="btn btn-bg py-3 px-3 mr-2">
+                            Add to Favorites
+                        </a>
+                    <?php
+                    }
+                    ?>
+
                 </p>
             </div>
         </div>
