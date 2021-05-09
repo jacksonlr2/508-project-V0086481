@@ -26,7 +26,7 @@ if(isset($_GET['logout'])){
 <section class="navbar">
     <div class="container">
         <div class="logo">
-            <a href="#" title="Logo">
+            <a href="main.php" title="Logo">
                 <img src="img/icon.png" alt="Logo" class="img-responsive">
             </a>
         </div>
@@ -71,7 +71,7 @@ if(isset($_GET['logout'])){
 <!-- fOOD MEnu Section Starts Here -->
 <section class="food-menu">
     <div class="container">
-        <h2 class="text-center">Food Menu</h2>
+        <h2 class="text-center">Recipes</h2>
 
         <?php
         $sql = "SELECT * FROM recipes";
@@ -112,12 +112,12 @@ if(isset($_GET['logout'])){
                         <h4><?php echo $name; ?></h4>
                         <?php
                         if($cook_time==""){ ?>
-                        <i class="far fa-clock"><?php echo $cook_time; ?></i>
+                            <i class="far fa-clock">---</i>
                             <?php
                         }
                         else{
                         ?>
-                            <i class="far fa-clock">---</i>
+                            <i class="far fa-clock"><?php echo $cook_time; ?></i>
                             <?php
                         }
                                 ?>

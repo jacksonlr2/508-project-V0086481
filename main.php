@@ -25,7 +25,7 @@ if(isset($_GET['logout'])){
 <section class="navbar">
     <div class="container">
         <div class="logo">
-            <a href="#" title="Logo">
+            <a href="main.php" title="Logo">
                 <img src="img/icon.png" alt="Logo" class="img-responsive">
             </a>
         </div>

@@ -25,7 +25,7 @@ if(isset($_GET['logout'])){
 <section class="navbar">
     <div class="container">
         <div class="logo">
-            <a href="#" title="Logo">
+            <a href="main.php" title="Logo">
                 <img src="img/icon.png" alt="Logo" class="img-responsive">
             </a>
         </div>
@@ -93,9 +93,6 @@ if(isset($_GET['logout'])){
         ?>
         <div class="clearfix"></div>
     </div>
-    <p class="text-center">
-        <a href="regions.php">See All Regions</a>
-    </p>
 </section>
 <!-- Categories Section Ends Here -->
 </body>
