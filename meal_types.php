@@ -68,7 +68,7 @@ if(isset($_GET['logout'])){
                 $name = $row['name'];
                 $image_path = $row['image_path'];
                 ?>
-                <a href="category-foods.html">
+                <a href="typeRecipes.php?meal_type_id=<?php echo $meal_type_id; ?>">
                     <div class="box-3 float-container">
                         <?php
                         if($image_path==""){

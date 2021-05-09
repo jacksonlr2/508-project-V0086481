@@ -11,6 +11,19 @@ if(isset($_GET['logout'])){
     unset($_SESSION);
     header("Location: signin.php");
 }
+
+if(isset($_GET['meal_type_id'])){
+    $meal_type_id = $_GET['meal_type_id'];
+    $sql = "SELECT name FROM meal_types WHERE meal_type_id = ?";
+    $stmt = $conn->prepare($sql);
+    $result = $stmt->execute([$meal_type_id]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $meal_type_name = $row['name'];
+}
+else{
+    header("Location: main.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,42 +70,38 @@ if(isset($_GET['logout'])){
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
     <div class="container">
-        <?php
-        $search = $_POST['search'];
-        ?>
-        <h2>Recipes From Your Search <a href="#" class="text-white">"<?php echo $search; ?>"</a></h2>
+
+        <h2><a href="#" class="text-white">"<?php echo $meal_type_name; ?>"</a> Recipes</h2>
 
     </div>
 </section>
 <!-- fOOD sEARCH Section Ends Here -->
 
-
-
 <!-- fOOD MEnu Section Starts Here -->
 <section class="food-menu">
     <div class="container">
-
         <h2 class="text-center">Recipes</h2>
 
         <?php
-        $sql = "SELECT * FROM recipes WHERE name LIKE '%$search%' OR instructions LIKE '%$search%'";
-        $stmt = $conn->prepare($sql);
-        $result = $stmt->execute();
-        if($stmt->rowCount() > 0) {
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $recipe_id = $row['recipe_id'];
-            $name = $row['name'];
-            $serving_size = $row['serving_size'];
-            $calories = $row['calories'];
-            $cook_time = $row['cook_time'];
-            $skill_level = $row['skill_level'];
-            $instructions = $row['instructions'];
-            $chef_id = $row['chef_id'];
-            $favorite_id = $row['favorite_id'];
-            $meal_type_id = $row['meal_type_id'];
-            $region_id = $row['region_id'];
-            $image_path2 = $row['image_path'];
-        ?>
+        $sql2 = "SELECT * FROM meal_types WHERE meal_type_id = ?";
+        $stmt2 = $conn->prepare($sql2);
+        $result2 = $stmt2->execute([$meal_type_id]);
+
+        if($stmt2->rowCount() > 0){
+            while($row2=$stmt2->fetch(PDO::FETCH_ASSOC)){
+                $recipe_id = $row2['recipe_id'];
+                $name = $row2['name'];
+                $serving_size = $row2['serving_size'];
+                $calories = $row2['calories'];
+                $cook_time = $row2['cook_time'];
+                $skill_level = $row2['skill_level'];
+                $instructions = $row2['instructions'];
+                $chef_id = $row2['chef_id'];
+                $favorite_id = $row2['favorite_id'];
+                $meal_type_id = $row2['meal_type_id'];
+                $region_id = $row2['region_id'];
+                $image_path2 = $row2['image_path'];
+                ?>
                 <div class="food-menu-box">
                     <div class="food-menu-img">
                         <?php
@@ -134,7 +143,6 @@ if(isset($_GET['logout'])){
             }
         }
         ?>
-
         <div class="clearfix"></div>
 
     </div>
