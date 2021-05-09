@@ -85,9 +85,9 @@ else{
 }
 ?>
 <?php
-$sql2 = "SELECT  CONCAT(IFNULL(first_name,' '), ' ', IFNULL(last_name,' ')) AS chef_name FROM recipes JOIN users ON chef_id = user_id WHERE recipe_id = ?";
+$sql2 = "SELECT  CONCAT(IFNULL(first_name,' '), ' ', IFNULL(last_name,' ')) AS chef_name FROM recipes JOIN users ON chef_id = user_id WHERE recipe_id = $recipe_id";
 $stmt2 = $conn->prepare($sql2);
-$result2 = $stmt2->execute([$recipe_id]);
+$result2 = $stmt2->execute();
 
 if($stmt2->rowCount() == 1) {
     $row2 = $stmt->fetch(PDO::FETCH_ASSOC);
