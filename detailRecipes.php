@@ -100,13 +100,39 @@ else{
 }
 ?>
 
+<?php
+$sql3 = "SELECT * FROM recipes JOIN users ON chef_id = user_id WHERE recipe_id = $recipe_id";
+$stmt3 = $conn->prepare($sql3);
+$result3 = $stmt3->execute();
+
+if($stmt3->rowCount() == 1) {
+    $row3 = $stmt2->fetch(PDO::FETCH_ASSOC);
+    $first_name = $row3['first_name'];
+    $last_name = $row3['last_name'];
+}
+else{
+    $first_name = ' ';
+    $last_name = ' ';
+}
+?>
+
 <section class="mt-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-5">
-                <a href="#"class="img-bg">
-                    <img src="<?php echo $image_path2?>"class="img-fluid"alt="">
-                </a>
+                <?php
+                if($image_path2==""){
+                    echo "<div class='error'>Image not Available</div>";
+                }
+                else{
+                    ?>
+                    <a href="#"class="img-bg">
+                        <img src="<?php echo $image_path2?>"class="img-fluid"alt="">
+                    </a>
+                    <?php
+
+                }
+                ?>
             </div>
             <div class="col-lg-6 prod-des p1-md-5">
                 <h3><?php echo $name?></h3>
@@ -137,6 +163,25 @@ else{
                         <i class="fas fa-fire mr-2 text-dark"> <?php echo $calories?> calories</i>
                     </p>
                 </div>
+                <p class="amount">Ingredients</p>
+                <?php
+                $sql4 = "SELECT i.name, quantity, unit FROM recipes r JOIN recipe_ingredient USING (recipe_id) JOIN ingredients i USING (ingredient_id) WHERE recipe_id = $recipe_id";
+                $stmt4 = $conn->prepare($sql4);
+                $result4 = $stmt4->execute();
+                if($stmt4->rowCount() > 0) {
+                    while ($row4 = $stmt4->fetch(PDO::FETCH_ASSOC)) {
+                        $ingred_name = $row4['name'];
+                        $quantity = $row4['quantity'];
+                        $unit = $row4['unit'];
+                        ?>
+                        <p>     *<?php echo $quantity?> <?php echo $ingred_name?> <?php echo $unit?></p>
+                        <?php
+                    }
+                }
+                else{
+                    echo "<div class='error'>No ingredients needed.</div>";
+                }
+                ?>
                 <p class="amount">Instructions</p>
                 <p><?php echo $instructions?></p>
                 <p>
