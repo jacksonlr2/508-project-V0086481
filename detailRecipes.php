@@ -11,32 +11,6 @@ if(isset($_GET['logout'])){
     unset($_SESSION);
     header("Location: signin.php");
 }
-if(isset($_GET['recipe_id'])){
-    $recipe_id = $_GET['recipe_id'];
-    $sql = "SELECT recipe_id, IFNULL(name,' '), IFNULL(serving_size,'---'), IFNULL(calories,'---'), IFNULL(cook_time,'---'), IFNULL(skill_level,'---'), IFNULL(instructions,'---'), chef_id, image_path FROM recipes WHERE recipe_id = ?";
-    $stmt = $conn->prepare($sql);
-    $result = $stmt->execute([$recipe_id]);
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if($stmt->rowCount() == 1) {
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        $recipe_id = $row['recipe_id'];
-        $name = $row['name'];
-        $serving_size = $row['serving_size'];
-        $calories = $row['calories'];
-        $cook_time = $row['cook_time'];
-        $skill_level = $row['skill_level'];
-        $instructions = $row['instructions'];
-        $chef_id = $row['chef_id'];
-        $image_path2 = $row['image_path'];
-    }
-    else{
-        header("Location: main.php");
-    }
-}
-else{
-    header("Location: main.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,6 +57,34 @@ else{
 </section>
 <!-- Navbar Section Ends Here -->
 <!-- Recipe Detail Section Starts Here -->
+<?php
+if(isset($_GET['recipe_id'])){
+    $recipe_id = $_GET['recipe_id'];
+    $sql = "SELECT recipe_id, IFNULL(name,' '), IFNULL(serving_size,'---'), IFNULL(calories,'---'), IFNULL(cook_time,'---'), IFNULL(skill_level,'---'), IFNULL(instructions,'---'), chef_id, image_path FROM recipes WHERE recipe_id = ?";
+    $stmt = $conn->prepare($sql);
+    $result = $stmt->execute([$recipe_id]);
+
+    if($stmt->rowCount() == 1) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $recipe_id = $row['recipe_id'];
+        $name = $row['name'];
+        $serving_size = $row['serving_size'];
+        $calories = $row['calories'];
+        $cook_time = $row['cook_time'];
+        $skill_level = $row['skill_level'];
+        $instructions = $row['instructions'];
+        $chef_id = $row['chef_id'];
+        $image_path2 = $row['image_path'];
+    }
+    else{
+        header("Location: main.php");
+    }
+}
+else{
+    header("Location: main.php");
+}
+?>
+
 <section class="mt-5">
     <div class="container">
         <div class="row">
