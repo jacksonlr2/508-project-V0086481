@@ -25,7 +25,6 @@ if(isset($_GET['logout'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Meals | Recipe </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mainStyle.css">
     <link rel="stylesheet" href="css/detailStyle.css">
     <script src="https://kit.fontawesome.com/13e4b9f1ad.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -60,7 +59,6 @@ if(isset($_GET['logout'])){
                 </li>
             </ul>
         </div>
-        <div class="clearfix"></div>
     </div>
 </section>
 <!-- Navbar Section Ends Here -->
