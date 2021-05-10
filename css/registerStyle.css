@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+.hero {
+    /* Sizing */
+    width: 100vw;
+    height: 100vh;
+
+    /* Text styles */
+    text-align: center;
+    color: white;
+
+    /* Background styles */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../img/home.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.hero h1 {
+    /* Text styles */
+    font-size: 5em;
+
+    /* Margins */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+.hero .btn {
+
+    /* Border styles */
+    border: 3px solid white;
+    border-radius: 20px;
+
+    /* Background styles */
+    background-image: linear-gradient(rgba(97, 78, 120, 0.8),rgba(107, 8, 84, 0.8));
+}

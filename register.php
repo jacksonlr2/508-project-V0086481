@@ -3,11 +3,12 @@
 <head>
     <title> Registration </title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/registerStyle.css">
 </head>
 
 <body>
 
-<div>
+<div class="hero">
     <form action="register.php" method="post">
         <div class="container">
             <div class="row justify-content-center">
