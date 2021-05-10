@@ -3,6 +3,7 @@
 <head>
     <title>Master Meals</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/signinStyles.css">
 </head>
 
 <body>
@@ -15,6 +16,9 @@
             <a href="signin.php" class="btn2">Sign in</a>
             <a href="chefsignin.php" class="btn2">Chef Portal</a>
         </div>
+        <p>Thanks for visiting my site!</p>
+        <p>If you don't feel like making an account, you can use the following for the sign in button:</p>
+        <p>username: test1 and password: test1</p>
     </div>
 </section>
 </body>
