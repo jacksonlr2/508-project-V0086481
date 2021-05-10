@@ -24,6 +24,7 @@ if(isset($_GET['logout'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Meals | Home </title>
     <link rel="stylesheet" href="css/mainStyle.css">
+    <link rel="stylesheet" href="css/chefStyle.css">
 </head>
 <body>
 <!-- Navbar Section Starts Here -->
@@ -54,14 +55,40 @@ if(isset($_GET['logout'])){
         <div class="clearfix"></div>
     </div>
 </section>
-<!-- fOOD sEARCH Section Starts Here -->
-<section class="food-search text-center">
-    <div class="container">
+<div class="main-content">
+    <div class="wrapper">
+        <h1>My Contributions</h1>
+        <br/>
 
-        <h2><a href="#" class="text-white">Welcome Back <?php echo $user_name; ?>!</a></h2>
+        <a href="addRecipe.php" class="btn-primary">Add Recipe</a>
 
+        <br  /><br  /><br  />
+
+        <table class="tbl-full">
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Serving Size</th>
+                <th>Calories</th>
+                <th>Cook Time (min.)</th>
+                <th>Skill Level</th>
+                <th>Instructions</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>N</td>
+                <td>I</td>
+                <td>SS</td>
+                <td>C</td>
+                <td>CT (min.)</td>
+                <td>SL</td>
+                <td>Instr</td>
+                <td>
+                    <a href="#" class="btn-secondary">Update Recipe</a>
+                    <a href="#" class="btn-danger">Delete Recipe</a>
+                </td>
+            </tr>
+
+        </table>
     </div>
-</section>
-<!-- fOOD sEARCH Section Ends Here -->
-</body>
-
+</div>
