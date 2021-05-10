@@ -69,17 +69,17 @@ if(isset($_GET['logout'])){
                 </tr>
                 <tr>
                     <td>
-                        <input type="number" name="serving_size" placeholder="Serving of Recipe">
+                        <input type="number" name="serving_size" min="0" step="1" size="6" placeholder="Serving of Recipe">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="number" name="calories" placeholder="Serving of Recipe">
+                        <input type="number" name="calories" min="0" step="1" size="6" placeholder="Calories of Recipe">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="number" name="cook_time" placeholder="Serving of Recipe">
+                        <input type="number" name="cook_time" min="0" step="1" size="6" placeholder="Cook Time of Recipe">
                     </td>
                 </tr>
                 <tr>
@@ -147,12 +147,12 @@ if(isset($_GET['logout'])){
                 </tr>
                 <tr>
                     <td>
-                        <input type="file" name="image_path" placeholder="Serving of Recipe">
+                        <input type="file" name="image_path">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <textarea name="instructions" cols="50" rows="10" placeholder="Name of Recipe"></textarea>
+                        <textarea name="instructions" cols="50" rows="10" placeholder="Instructions of Recipe"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -183,7 +183,7 @@ if(isset($_GET['logout'])){
                         $ext = end(explode('.', $image_name));
                         $image_name = "img/Recipes-".rand(0000,9999). ".".$ext;
                         $src = $_FILES['image_path']['tmp_name'];
-                        $dst = "img/".$image_name;
+                        $dst = $image_name;
                         $upload = move_uploaded_file($src,$dst);
 
                         if($upload==false){
