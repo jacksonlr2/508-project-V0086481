@@ -210,15 +210,7 @@ if(isset($_GET['logout'])){
                 $stmt2 = $conn->prepare($sql2);
                 $result2 = $stmt2->execute();
 
-                if($result2 == true){
-                    $_SESSION['add'] = "<div class='success'>Recipe Added Successfully.</div>";
-                    header("Location: chefcontributions.php");
-                }
-                else{
-                    $_SESSION['add'] = "<div class='success'>Failed to Add Recipe.</div>";
-                    header("Location: chefcontributions.php");
-                }
-
+                header("Location: chefcontributions.php");
 
 
             }
