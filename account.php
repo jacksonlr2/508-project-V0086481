@@ -18,7 +18,6 @@ if(isset($_GET['logout'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
-    <link rel="stylesheet" href="css/mainStyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -69,6 +68,14 @@ if(isset($_GET['logout'])){
                     <?php
                 }
             }
+            if(isset($_GET['success'])){
+                if($_GET['success'] == 'userUpdated'){
+                    ?>
+                    <small class="alert alert-success"> User updated Successfully</small>
+                    <hr>
+                    <?php
+                }
+            }
             ?>
             <form action="accountUpdateProcess.php"
                   method="POST"
@@ -97,10 +104,9 @@ if(isset($_GET['logout'])){
 
                             <div class="form-group">
                                 <input type="submit" name="update"  class="btn btn-info" value="Update">
-                            </div>
-                            <div class="form-group">
                                 <input type="submit" name="delete"  class="btn btn-info" value="Delete">
                             </div>
+
                             <?php
                         }
                     }

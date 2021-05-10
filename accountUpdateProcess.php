@@ -41,17 +41,14 @@ if(isset($_POST['delete'])){
         $user_id = $loggedInUser['user_id'];
 
         $sql = "DELETE FROM favorites_lists WHERE viewer_id = '$user_id'";
-        $results = mysqli_query($conn,$sql);
         $stmt = $conn->prepare($sql);
         $results = $stmt->execute();
 
         $sql3 = "DELETE FROM users_viewer WHERE user_viewer_id = '$user_id'";
-        $results3 = mysqli_query($conn,$sql3);
         $stmt3 = $conn->prepare($sql3);
         $results3 = $stmt3->execute();
 
         $sql2 = "DELETE FROM users WHERE user_id = '$user_id'";
-        $results2 = mysqli_query($conn,$sql2);
         $stmt2 = $conn->prepare($sql2);
         $results2 = $stmt2->execute();
 
