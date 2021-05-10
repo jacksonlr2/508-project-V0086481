@@ -12,7 +12,7 @@ if(isset($_POST)){
     $stmtinsert = $conn->prepare($sql);
     $result = $stmtinsert->execute([$first_name, $last_name, $email, $username, $password]);
     if($result){
-        $user_id = $stmtinsert->insert_id;
+        $user_id = $conn->lastInsertId();
         $sql2 = "INSERT INTO users_viewer(user_viewer_id) VALUES($user_id)";
         $stmtinsert2 = $conn->prepare($sql2);
         $result2 = $stmtinsert2->execute();
