@@ -3,13 +3,13 @@ session_start();
 require_once ('connection.php');
 
 if(!isset($_SESSION['cheflogin'])){
-    header("Location: signin.php");
+    header("Location: chefsignin.php");
 }
 
 if(isset($_GET['logout'])){
     session_destroy();
     unset($_SESSION);
-    header("Location: signin.php");
+    header("Location: chefsignin.php");
 }
 ?>
 <!DOCTYPE html>
