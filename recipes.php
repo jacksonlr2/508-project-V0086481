@@ -17,7 +17,7 @@ if(isset($_GET['logout'])){
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Meals | Home </title>
+    <title>Master Meals | Recipes </title>
     <link rel="stylesheet" href="css/mainStyle.css">
     <script src="https://kit.fontawesome.com/13e4b9f1ad.js" crossorigin="anonymous"></script>
 </head>
@@ -88,7 +88,6 @@ if(isset($_GET['logout'])){
                 $skill_level = $row['skill_level'];
                 $instructions = $row['instructions'];
                 $chef_id = $row['chef_id'];
-                $favorite_id = $row['favorite_id'];
                 $meal_type_id = $row['meal_type_id'];
                 $region_id = $row['region_id'];
                 $image_path2 = $row['image_path'];
@@ -117,7 +116,7 @@ if(isset($_GET['logout'])){
                         }
                         else{
                         ?>
-                            <i class="far fa-clock"><?php echo $cook_time; ?></i>
+                            <i class="far fa-clock"><?php echo $cook_time; ?> minutes</i>
                             <?php
                         }
                                 ?>

@@ -128,7 +128,7 @@ if(isset($_GET['logout'])){
                         }
                         else{
                             ?>
-                            <i class="far fa-clock"><?php echo $cook_time; ?></i>
+                            <i class="far fa-clock"><?php echo $cook_time; ?> minutes</i>
                             <?php
                         }
                         ?>
