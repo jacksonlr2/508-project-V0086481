@@ -54,6 +54,12 @@ if(isset($_GET['logout'])){
         <a href="addRecipe.php" class="btn-primary">Add Recipe</a>
 
         <br  /><br  /><br  />
+        <?php
+        if(isset($_SESSION['add'])){
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }
+        ?>
 
         <table class="tbl-full">
             <tr>
@@ -62,16 +68,45 @@ if(isset($_GET['logout'])){
                 <th>Skill Level</th>
                 <th>Actions</th>
             </tr>
-            <tr>
-                <td>N</td>
-                <td>I</td>
-                <td>SL</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Recipe</a>
-                    <a href="#" class="btn-danger">Delete Recipe</a>
-                </td>
-            </tr>
+            <?php
+            $sql = "SELECT * FROM recipes WHERE chef_id = $user_id";
+            $stmt = $conn->prepare($sql);
+            $result = $stmt->execute();
 
+            if($stmt->rowCount() > 0) {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $name = $row['name'];
+                    $image_path = $row['image_path'];
+                    $skill_level = $row['skill_level'];
+                    ?>
+                    <tr>
+                        <td><?php echo $name;?></td>
+                        <td>
+                            <?php
+                                if($image_path == ""){
+                                    echo "<div class='error'>Image not Added";
+                                }
+                                else{
+                                    ?>
+                                    <img src="<?php echo $image_path;?>" width="100px">
+
+                                    <?php
+                                }
+                            ?>
+                        </td>
+                        <td><?php echo $skill_level;?></td>
+                        <td>
+                            <a href="#" class="btn-secondary">Update Recipe</a>
+                            <a href="#" class="btn-danger">Delete Recipe</a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+            }
+            else{
+                echo "<tr> <td colspan='7' class='error'> Recipes not added yet.</td></tr>";
+            }
+            ?>
         </table>
     </div>
 </div>
