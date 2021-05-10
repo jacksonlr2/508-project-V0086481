@@ -23,31 +23,29 @@ if(isset($_GET['logout'])){
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Meals | Home </title>
-    <link rel="stylesheet" href="css/chefStyle.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <!-- Navbar Section Starts Here -->
-<section class="navbar">
+
+<div class="menu text-center">
     <div class="wrapper">
-        <div class="menu text-center">
-            <ul>
-                <li>
-                    <a href="chefmain.php">Home</a>
-                </li>
-                <li>
-                    <a href="chefcontributions.php">My Contributions</a>
-                </li>
-                <li>
-                    <a href="chefaccount.php">Account</a>
-                </li>
-                <li>
-                    <a href="chefmain.php?logout=true">Logout</a>
-                </li>
-            </ul>
-        </div>
-        <div class="clearfix"></div>
+        <ul>
+            <li>
+                <a href="chefmain.php">Home</a>
+            </li>
+            <li>
+                <a href="chefcontributions.php">My Contributions</a>
+            </li>
+            <li>
+                <a href="chefaccount.php">Account</a>
+            </li>
+            <li>
+                <a href="chefmain.php?logout=true">Logout</a>
+            </li>
+        </ul>
     </div>
-</section>
+</div>
 <div class="main-content">
     <div class="wrapper">
         <h1>My Contributions</h1>
@@ -61,21 +59,13 @@ if(isset($_GET['logout'])){
             <tr>
                 <th>Name</th>
                 <th>Image</th>
-                <th>Serving Size</th>
-                <th>Calories</th>
-                <th>Cook Time (min.)</th>
                 <th>Skill Level</th>
-                <th>Instructions</th>
                 <th>Actions</th>
             </tr>
             <tr>
                 <td>N</td>
                 <td>I</td>
-                <td>SS</td>
-                <td>C</td>
-                <td>CT (min.)</td>
                 <td>SL</td>
-                <td>Instr</td>
                 <td>
                     <a href="#" class="btn-secondary">Update Recipe</a>
                     <a href="#" class="btn-danger">Delete Recipe</a>
