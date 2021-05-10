@@ -60,15 +60,6 @@ if(isset($_GET['logout'])){
     <div class="row">
         <div class="col-md-6 offset-3">
             <?php
-            if($_GET['success']){
-                if($_GET['success'] == 'userUpdated'){
-                    ?>
-                    <small class="alert alert-success"> Account updated Successfully</small>
-                    <hr>
-                    <?php
-                }
-            }
-
 
             if(isset($_GET['error'])){
                 if($_GET['error'] == 'emptyNameAndEmail'){
