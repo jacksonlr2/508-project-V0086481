@@ -24,9 +24,11 @@ if($result){
 
     if($viewerselect->rowCount() > 0 AND password_verify($password, $user['password'])){
         $_SESSION['userlogin'] = $user;
+        header('Location: main.php');
     }
     elseif ($adminselect->rowCount() > 0 AND password_verify($password, $user['password'])){
         $_SESSION['cheflogin'] = $user;
+        header('Location: chefmain.php');
     }
     else{
         echo "The username/password you entered is incorrect.";
