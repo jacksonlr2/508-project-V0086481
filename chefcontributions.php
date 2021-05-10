@@ -29,13 +29,7 @@ if(isset($_GET['logout'])){
 <!-- Navbar Section Starts Here -->
 <section class="navbar">
     <div class="wrapper">
-        <div class="logo">
-            <a href="chefmain.php" title="Logo">
-                <img src="img/icon.png" alt="Logo" class="img-responsive">
-            </a>
-        </div>
-
-        <div class="menu text-right">
+        <div class="menu text-center">
             <ul>
                 <li>
                     <a href="chefmain.php">Home</a>
