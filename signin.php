@@ -4,9 +4,6 @@
     if(isset($_SESSION['userlogin'])){
         header("Location: main.php");
     }
-    if(isset($_SESSION['cheflogin'])){
-        header("Location: chefmain.php");
-    }
 ?>
 
 <!DOCTYPE html>
