@@ -15,6 +15,7 @@
         <div class="actions">
             <a href="register.php" class="btn1">Register</a>
             <a href="signin.php" class="btn2">Sign in</a>
+            <a href="chefsignin.php" class="btn2">Chef Portal</a>
         </div>
     </div>
 </section>
