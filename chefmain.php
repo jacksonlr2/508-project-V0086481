@@ -5,6 +5,11 @@ require_once ('connection.php');
 if(!isset($_SESSION['cheflogin'])){
     header("Location: chefsignin.php");
 }
+else{
+    $user   = $_SESSION['cheflogin'];
+    $user_id = $user['user_id'];
+    $user_name = $user['first_name'];
+}
 
 if(isset($_GET['logout'])){
     session_destroy();
@@ -36,13 +41,10 @@ if(isset($_GET['logout'])){
                     <a href="chefmain.php">Home</a>
                 </li>
                 <li>
-                    <a href="recipes.php">Recipes</a>
-                </li>
-                <li>
                     <a href="chefcontributions.php">My Contributions</a>
                 </li>
                 <li>
-                    <a href="account.php">Account</a>
+                    <a href="chefaccount.php">Account</a>
                 </li>
                 <li>
                     <a href="chefmain.php?logout=true">Logout</a>
@@ -56,107 +58,10 @@ if(isset($_GET['logout'])){
 <section class="food-search text-center">
     <div class="container">
 
-        <form action="searchRecipes.php" method="POST">
-            <input type="search" name="search" placeholder="Search for Recipes..." required>
-            <input type="submit" name="submit" value="Search" class="btn btn-primary">
-        </form>
+        <h2><a href="#" class="text-white">Welcome Back <?php echo $user_name; ?>!</a></h2>
 
     </div>
 </section>
-<!-- food search Section Ends Here -->
-<!-- Categories Section Starts Here -->
-<section class="categories">
-    <div class="container">
-        <h2 class="text-center">Explore Recipes By Type</h2>
-
-        <?php
-        $sql = "SELECT * FROM meal_types LIMIT 3";
-        $stmt = $conn->prepare($sql);
-        $result = $stmt->execute();;
-
-        if($stmt->rowCount() > 0){
-            while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-                $meal_type_id = $row['meal_type_id'];
-                $name = $row['name'];
-                $image_path = $row['image_path'];
-                ?>
-                <a href="typeRecipes.php?meal_type_id=<?php echo $meal_type_id; ?>">
-                    <div class="box-3 float-container">
-                        <?php
-                        if($image_path==""){
-                            echo "<div class='error'>Image not Available</div>";
-                        }
-                        else{
-                            ?>
-                            <img src="<?php echo $image_path;?>" alt="" class="img-responsive img-curve">
-                            <?php
-
-                        }
-                        ?>
-                        <h3 class="float-text text-white"><?php echo $name; ?></h3>
-                    </div>
-                </a>
-                <?php
-            }
-        }
-        else{
-            echo "<div class='error'>Types have not been added.</div>";
-        }
-        ?>
-
-        <div class="clearfix"></div>
-    </div>
-    <p class="text-center">
-        <a href="meal_types.php">See All Types</a>
-    </p>
-</section>
-<!-- Categories Section Ends Here -->
-<!-- Categories Section Starts Here -->
-<section class="regions">
-    <div class="container">
-        <h2 class="text-center">Explore Recipes By Region</h2>
-
-        <?php
-        $sql = "SELECT * FROM regions LIMIT 3";
-        $stmt = $conn->prepare($sql);
-        $result = $stmt->execute();;
-
-        if($stmt->rowCount() > 0){
-            while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
-                $region_id = $row['region_id'];
-                $name = $row['name'];
-                $image_path = $row['image_path'];
-                ?>
-                <a href="regionRecipes.php?region_id=<?php echo $region_id; ?>">
-                    <div class="box-3 float-container">
-                        <?php
-                        if($image_path==""){
-                            echo "<div class='error'>Image not Available</div>";
-                        }
-                        else{
-                            ?>
-                            <img src="<?php echo $image_path;?>" alt="" class="img-responsive img-curve">
-                            <?php
-
-                        }
-                        ?>
-                        <h3 class="float-text text-white"><?php echo $name; ?></h3>
-                    </div>
-                </a>
-                <?php
-            }
-        }
-        else{
-            echo "<div class='error'>Regions have not been added.</div>";
-        }
-        ?>
-
-        <div class="clearfix"></div>
-    </div>
-    <p class="text-center">
-        <a href="regions.php">See All Regions</a>
-    </p>
-</section>
-<!-- Categories Section Ends Here -->
+<!-- fOOD sEARCH Section Ends Here -->
 </body>
 

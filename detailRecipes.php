@@ -144,16 +144,6 @@ else{
                 </div>
                 <div class="rating d-flex">
                     <p class="text-left mr-4">
-                        <a href="#"class="mr-2 text-dark">4.5 out of 5.0</a>
-                    </p>
-                    <p class="text-left mr-4">
-                        <a href="#"class="mr-2 text-dark">100
-                            <span style="color: #2c2e2c8a;">Ratings</span>
-                        </a>
-                    </p>
-                </div>
-                <div class="rating d-flex">
-                    <p class="text-left mr-4">
                         <i class="far fa-clock mr-2 text-dark"> <?php echo $cook_time?> minutes</i>
                     </p>
                     <p class="text-left mr-4">
