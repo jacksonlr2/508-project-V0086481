@@ -57,9 +57,6 @@
                 <div class="d-flex justify-content-center">
                     Return to <a href="index.php" class="ml-2">Home</a>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <a href="#">Forgot your password?</a>
-                </div>
             </div>
         </div>
     </div>
