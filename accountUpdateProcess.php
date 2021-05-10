@@ -40,7 +40,7 @@ if(isset($_POST['delete'])){
         $loggedInUser = $_SESSION['userlogin'];
         $user_id = $loggedInUser['user_id'];
 
-        $sql = "DELETE FROM favorites_lists WHERE viewer_id = '$user_id'";
+        $sql = "DELETE FROM favorites_list WHERE viewer_id = '$user_id'";
         $stmt = $conn->prepare($sql);
         $results = $stmt->execute();
 
