@@ -74,7 +74,16 @@ if(isset($_GET['logout'])){
 <section class="food-menu">
     <div class="container">
         <h2 class="text-center">Recipes</h2>
-
+        <?php
+        if(isset($_SESSION['add'])){
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }
+        if(isset($_SESSION['delete'])){
+            echo $_SESSION['delete'];
+            unset($_SESSION['delete']);
+        }
+        ?>
         <?php
         $sql2 = "SELECT * FROM recipes JOIN favorites_list USING (recipe_id) JOIN users ON viewer_id = user_id WHERE user_id = ?";
         $stmt2 = $conn->prepare($sql2);
@@ -129,7 +138,7 @@ if(isset($_GET['logout'])){
                         </p>
                         <br>
 
-                        <a href="#" class="btn btn-primary">Details</a>
+                        <a href="detailRecipes.php?recipe_id=<?php echo $recipe_id;?>" class="btn btn-primary">Details</a>
                     </div>
                 </div>
                 <?php

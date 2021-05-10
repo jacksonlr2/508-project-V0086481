@@ -127,7 +127,7 @@ if(isset($_GET['logout'])){
                         </p>
                         <br>
 
-                        <a href="#" class="btn btn-primary">Details</a>
+                        <a href="detailRecipes.php?recipe_id=<?php echo $recipe_id;?>" class="btn btn-primary">Details</a>
                     </div>
                 </div>
                 <?php
