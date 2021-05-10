@@ -87,13 +87,12 @@ if(isset($_GET['logout'])){
                 $currentUser = $_SESSION['userlogin'];
                 $user_id = $currentUser['user_id'];
                 $sql = "SELECT * FROM users WHERE user_id ='$user_id'";
-
-                $results = mysqli_query($conn,$sql);
+                $stmt = $conn->prepare($sql);
+                $results = $stmt->execute();
 
                 if($results){
-                    if(mysqli_num_rows($results)>0){
-                        while($row = mysqli_fetch_array($results)){
-                            //print_r($row['user_name']);
+                    if($stmt->rowCount() > 0){
+                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                             ?>
                             <div class="form-group">
                                 <input type="text" name="updateUserName" class="form-control" value="<?php echo $row['username']; ?>">

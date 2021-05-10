@@ -23,8 +23,8 @@ if(isset($_POST['update'])){
                         $sql = "UPDATE users SET username = '$userNewName', email ='$userNewEmail', password='$password' WHERE user_id = '$user_id'";
                     }
 
-
-                    $results = mysqli_query($conn,$sql);
+                    $stmt = $conn->prepare($sql);
+                    $results = $stmt->execute();
 
                     header('Location: account.php?success=userUpdated');
                     exit;
@@ -42,12 +42,18 @@ if(isset($_POST['delete'])){
 
         $sql = "DELETE FROM favorites_lists WHERE viewer_id = '$user_id'";
         $results = mysqli_query($conn,$sql);
+        $stmt = $conn->prepare($sql);
+        $results = $stmt->execute();
 
         $sql3 = "DELETE FROM users_viewer WHERE user_viewer_id = '$user_id'";
         $results3 = mysqli_query($conn,$sql3);
+        $stmt3 = $conn->prepare($sql3);
+        $results3 = $stmt3->execute();
 
         $sql2 = "DELETE FROM users WHERE user_id = '$user_id'";
         $results2 = mysqli_query($conn,$sql2);
+        $stmt2 = $conn->prepare($sql2);
+        $results2 = $stmt2->execute();
 
         session_destroy();
         unset($_SESSION);
