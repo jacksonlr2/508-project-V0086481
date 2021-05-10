@@ -25,6 +25,7 @@ if(isset($_GET['logout'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Meals | My Favorites </title>
     <link rel="stylesheet" href="css/mainStyle.css">
+    <script src="https://kit.fontawesome.com/13e4b9f1ad.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- Navbar Section Starts Here -->
