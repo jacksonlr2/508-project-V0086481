@@ -210,7 +210,6 @@ if(isset($_GET['logout'])){
                 $stmt2 = $conn->prepare($sql2);
                 $result2 = $stmt2->execute();
 
-                header("Location: chefcontributions.php");
 
 
             }
