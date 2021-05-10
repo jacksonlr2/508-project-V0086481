@@ -4,6 +4,9 @@
     if(isset($_SESSION['userlogin'])){
         header("Location: main.php");
     }
+    if(isset($_SESSION['cheflogin'])){
+        header("Location: chefmain.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -83,10 +86,10 @@ crossorigin="anonymous"></script>
                 url: 'jssignin.php',
                 data:  {username: username, password: password},
                 success: function(data){
-                        setTimeout(' window.location.href =  "main.php"', 1000);
+
                 },
                 error: function(data){
-                    alert('there were errors while doing the operation.');
+                    alert('There were errors while doing the operation.');
                 }
             });
 
