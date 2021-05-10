@@ -83,7 +83,7 @@ crossorigin="anonymous"></script>
                 url: 'jssignin.php',
                 data:  {username: username, password: password},
                 success: function(data){
-
+                    header("Location: main.php");
                 },
                 error: function(data){
                     alert('There were errors while doing the operation.');
