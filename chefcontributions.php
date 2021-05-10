@@ -23,13 +23,12 @@ if(isset($_GET['logout'])){
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Meals | Home </title>
-    <link rel="stylesheet" href="css/mainStyle.css">
     <link rel="stylesheet" href="css/chefStyle.css">
 </head>
 <body>
 <!-- Navbar Section Starts Here -->
 <section class="navbar">
-    <div class="container">
+    <div class="wrapper">
         <div class="logo">
             <a href="chefmain.php" title="Logo">
                 <img src="img/icon.png" alt="Logo" class="img-responsive">

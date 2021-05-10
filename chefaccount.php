@@ -36,7 +36,7 @@ if(isset($_GET['logout'])){
                     <a href="chefmain.php">Home</a>
                 </li>
                 <li>
-                    <a href="chefcontributions.php">My Favorites</a>
+                    <a href="chefcontributions.php">My Contributions</a>
                 </li>
                 <li>
                     <a href="chefaccount.php">Account</a>
