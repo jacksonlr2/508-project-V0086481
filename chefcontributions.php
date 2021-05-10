@@ -23,7 +23,7 @@ if(isset($_GET['logout'])){
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Meals | Home </title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chefStyle.css">
 </head>
 <body>
 <!-- Navbar Section Starts Here -->
