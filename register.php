@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-3">
-                    <h1>Registration</h1>
+                    <h2>Registration</h2>
                     <p>Please fill out the form below to register.</p>
                     <hr class="mb-3">
                     <label for="first_name"><b>First Name</b></label>
