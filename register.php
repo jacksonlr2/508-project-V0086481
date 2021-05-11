@@ -14,7 +14,7 @@
             <div class="row justify-content-center">
                 <div class="col-sm-3">
                     <h1>Registration</h1>
-                    <p>Fill up the form with correct values.</p>
+                    <p>Please fill out the information below.</p>
                     <hr class="mb-3">
                     <label for="first_name"><b>First Name</b></label>
                     <input class="form-control" id="first_name" placeholder="Enter first name" type="text" name="first_name" required>
