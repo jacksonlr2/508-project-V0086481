@@ -1,5 +1,5 @@
 # Master Meals
-Master Meals is a database management system that stores recipes contributed by chefs from around the world.
+Master Meals is a database management system web app that stores recipes contributed by chefs from around the world.
 ## Features - Customers
 * Create your own personal account
 * Change personal information associated with your account whenever you like
